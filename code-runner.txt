@@ -1,0 +1,13 @@
+-----LINUX-----
+
+"cpp": "g++ $fullFileName && ./a.out",
+"c": "gcc $fullFileName && ./a.out",
+
+-----WINDOWS-----
+
+"cpp": "g++ $fullFileName && ./a.exe",
+"c": "gcc $fullFileName && ./a.exe",
+-----MAC-OS-----
+
+"cpp": "g++ $fullFileName && ./a.out",
+"c": "gcc $fullFileName && ./a.out",
