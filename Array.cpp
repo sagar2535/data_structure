@@ -95,12 +95,28 @@ public:
             length++;
         }
     }
+    int Delete(int index)
+    {
+        int x = 0;
+        if (index >= 0 && index < length)
+        {
+            x = arr[index];
+            for (int i = index; i < length - 1; i++)
+            {
+                arr[i] = arr[i + 1];
+            }
+            length--;
+            return x;
+        }
+        return 0;
+    }
 };
 int main()
 {
     Array a(10, 5);
     a.InputArray();
-    a.Insert(2, 5);
+    // a.Insert(2, 5);
+    cout << "\nDelete index is : " << a.Delete(5) << endl;
     a.PrintArray();
     // cout << "\nMaximum in Array is : " << a.MAX();
     // cout << "\nMaximum in Array is : " << a.MIN();
