@@ -62,6 +62,20 @@ public:
         }
         return min;
     }
+    int LinearSearch(int key)
+    {
+        for (int i = 0; i < length; i++)
+        {
+            if (arr[i] == key)
+            {
+                cout << "Key is found on index : ";
+                return i;
+            }
+        }
+
+        cout << "Key is not found : ";
+        return -1;
+    }
 };
 int main()
 {
@@ -70,5 +84,10 @@ int main()
     a.printArray();
     cout << "\nMaximum in Array is : " << a.MAX();
     cout << "\nMaximum in Array is : " << a.MIN();
+    int key;
+    cout << "\nEnter Your Key : ";
+    cin >> key;
+    cout << a.LinearSearch(key);
+
     return 0;
 }
