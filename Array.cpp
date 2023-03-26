@@ -139,7 +139,30 @@ public:
         cout << "Key is not found : ";
         return -1;
     }
+    int RBinarySearch(int start, int end, int key)
+    {
+        int mid;
+        if (start <= end)
+        {
+            mid = (start + end) / 2;
+            if (key == arr[mid])
+            {
+                return mid;
+            }
+            else if (key < arr[mid])
+            {
+                return RBinarySearch(start, mid - 1, key);
+            }
+            else
+            {
+
+                return RBinarySearch(mid + 1, end, key);
+            }
+        }
+        return -1;
+    }
 };
+
 int main()
 {
     Array a(10, 5);
@@ -152,7 +175,7 @@ int main()
     int key;
     cout << "\nEnter Your Key : ";
     cin >> key;
-    cout << a.BinarySearch(key);
+    cout << a.RBinarySearch(0, 10, key);
     // cout << a.LinearSearch(key);
 
     return 0;
