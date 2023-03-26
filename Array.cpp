@@ -95,6 +95,12 @@ public:
             length++;
         }
     }
+    void swap(int &x, int &y)
+    {
+        int temp = x;
+        x = y;
+        y = temp;
+    }
     int Delete(int index)
     {
         int x = 0;
@@ -110,19 +116,43 @@ public:
         }
         return 0;
     }
+    int BinarySearch(int key)
+    {
+        int start = 0, end = length - 1, mid;
+        while (start <= end)
+        {
+            mid = (start + end) / 2;
+            if (key == arr[mid])
+            {
+                cout << "Key is found on index : ";
+                return mid;
+            }
+            else if (key < arr[mid])
+            {
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        cout << "Key is not found : ";
+        return -1;
+    }
 };
 int main()
 {
     Array a(10, 5);
     a.InputArray();
     // a.Insert(2, 5);
-    cout << "\nDelete index is : " << a.Delete(5) << endl;
-    a.PrintArray();
+    // cout << "\nDelete index is : " << a.Delete(5) << endl;
     // cout << "\nMaximum in Array is : " << a.MAX();
+    // a.PrintArray();
     // cout << "\nMaximum in Array is : " << a.MIN();
-    // int key;
-    // cout << "\nEnter Your Key : ";
-    // cin >> key;
+    int key;
+    cout << "\nEnter Your Key : ";
+    cin >> key;
+    cout << a.BinarySearch(key);
     // cout << a.LinearSearch(key);
 
     return 0;
