@@ -24,14 +24,14 @@ public:
     {
         delete[] arr;
     }
-    void printArray()
+    void PrintArray()
     {
         for (int i = 0; i < length; i++)
         {
             cout << arr[i] << " ";
         }
     }
-    void inputArray()
+    void InputArray()
     {
         for (int i = 0; i < length; i++)
         {
@@ -76,18 +76,38 @@ public:
         cout << "Key is not found : ";
         return -1;
     }
+    void Append(int value)
+    {
+        if (length < size)
+        {
+            arr[length++] = value;
+        }
+    }
+    void Insert(int index, int value)
+    {
+        if (index >= 0 && index <= length)
+        {
+            for (int i = length; i > index; i--)
+            {
+                arr[i] = arr[i - 1];
+            }
+            arr[index] = value;
+            length++;
+        }
+    }
 };
 int main()
 {
     Array a(10, 5);
-    a.inputArray();
-    a.printArray();
-    cout << "\nMaximum in Array is : " << a.MAX();
-    cout << "\nMaximum in Array is : " << a.MIN();
-    int key;
-    cout << "\nEnter Your Key : ";
-    cin >> key;
-    cout << a.LinearSearch(key);
+    a.InputArray();
+    a.Insert(2, 5);
+    a.PrintArray();
+    // cout << "\nMaximum in Array is : " << a.MAX();
+    // cout << "\nMaximum in Array is : " << a.MIN();
+    // int key;
+    // cout << "\nEnter Your Key : ";
+    // cin >> key;
+    // cout << a.LinearSearch(key);
 
     return 0;
 }
